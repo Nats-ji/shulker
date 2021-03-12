@@ -206,9 +206,9 @@ class Discord {
 
     let avatarURL
     if (username === this.config.SERVER_NAME + ' Server') { // use avatar for the server
-      avatarURL = this.config.SERVER_IMAGE || 'https://minotar.net/helm/Steve/256.png'
+      avatarURL = this.config.SERVER_IMAGE || 'https://mc-heads.net/avatar/MHF_Steve/256.png'
     } else { // use avatar for player
-      avatarURL = `https://minotar.net/helm/${username}/256.png`
+      avatarURL = `https://mc-heads.net/avatar/${username}/256.png`
     }
 
     return {

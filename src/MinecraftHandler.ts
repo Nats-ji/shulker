@@ -54,7 +54,7 @@ class MinecraftHandler {
     const logLine = logLineData[1]
 
     // the username used for server messages
-    const serverUsername = `${this.config.SERVER_NAME} - Server`
+    const serverUsername = `${this.config.SERVER_NAME}`
 
     if (logLine.startsWith('<')) {
       if (this.config.DEBUG){
@@ -103,7 +103,7 @@ class MinecraftHandler {
       if (this.config.DEBUG){
         console.log('[DEBUG] A player has made an advancement')
       }
-      return { username: `${this.config.SERVER_NAME} - Server`, message: logLine }
+      return { username: serverUsername, message: logLine }
     } else if (this.config.SHOW_PLAYER_ME && logLine.startsWith('* ')) {
       // /me commands have the bolded name and the action they did
       const usernameMatch = data.match(/: \* ([a-zA-Z0-9_]{1,16}) (.*)/)

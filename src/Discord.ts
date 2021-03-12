@@ -116,6 +116,8 @@ class Discord {
     } else {
       if (this.config.MINECRAFT_TELLRAW_DOESNT_EXIST) {
         command = `/say ${this.makeMinecraftTellraw(message)}`
+      } else if (this.config.SPIGOT_PAPER) {
+        command = `minecraft:tellraw @a ${this.makeMinecraftTellraw(message)}`
       } else {
         command = `/tellraw @a ${this.makeMinecraftTellraw(message)}`
       }
@@ -149,7 +151,7 @@ class Discord {
     for (const v of Object.keys(variables)) {
       variables[v] = JSON.stringify(variables[v]).slice(1,-1)
     }
-    
+
     if (this.config.MINECRAFT_TELLRAW_DOESNT_EXIST)
     {
         return this.config.MINECRAFT_TELLRAW_DOESNT_EXIST_SAY_TEMPLATE
@@ -199,7 +201,7 @@ class Discord {
     message = this.replaceDiscordMentions(message)
 
     let avatarURL
-    if (username === this.config.SERVER_NAME + ' - Server') { // use avatar for the server
+    if (username === this.config.SERVER_NAME + ' Server') { // use avatar for the server
       avatarURL = this.config.SERVER_IMAGE || 'https://minotar.net/helm/Steve/256.png'
     } else { // use avatar for player
       avatarURL = `https://minotar.net/helm/${username}/256.png`

@@ -9,6 +9,8 @@ export interface Config {
   DISCORD_CHANNEL_NAME: string
   DISCORD_MESSAGE_TEMPLATE: string
 
+  SPIGOT_PAPER: boolean
+
   MINECRAFT_SERVER_RCON_IP: string
   MINECRAFT_SERVER_RCON_PORT: number
   MINECRAFT_SERVER_RCON_PASSWORD: string

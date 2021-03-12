@@ -9,6 +9,8 @@
     "DISCORD_CHANNEL_NAME": "#bot",
     "DISCORD_MESSAGE_TEMPLATE": "`%username%`: %message%",
 
+    "SPIGOT_PAPER": false,
+    
     "MINECRAFT_SERVER_RCON_IP": "127.0.0.1",
     "MINECRAFT_SERVER_RCON_PORT": 25575,
     "MINECRAFT_SERVER_RCON_PASSWORD": "password",
@@ -41,4 +43,3 @@
     "SHOW_PLAYER_ME": false,
     "DEATH_KEY_WORDS": ["shot", "fell", "death", "died", "doomed", "pummeled", "removed", "didn't want", "withered", "squashed", "flames", "burnt", "walked into", "bang", "roasted", "squished", "drowned", "killed", "slain", "blown", "blew", "suffocated", "struck", "lava", "impaled", "speared", "fireballed", "finished", "kinetic"]
 }
-

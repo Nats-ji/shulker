@@ -141,11 +141,15 @@ class Discord {
   }
 
   private makeMinecraftTellraw(message: Message): string {
+    let cleanMessage = message.cleanContent
+    if (this.config.REMOVE_EMOJI_FROM_CHAT) {
+      cleanMessage = emojiStrip(message.cleanContent)
+    }
     const variables: {[index: string]: string} = {
       username: emojiStrip(message.author.username),
       nickname: message.member.nickname ? emojiStrip(message.member.nickname) : emojiStrip(message.author.username),
       discriminator: message.author.discriminator,
-      text: emojiStrip(message.cleanContent)
+      text: cleanMessage
     }
     // hastily use JSON to encode the strings
     for (const v of Object.keys(variables)) {

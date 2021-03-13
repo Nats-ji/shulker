@@ -38,7 +38,7 @@ class MinecraftHandler {
     if (this.config.DEBUG) console.log('[DEBUG] Received ' + data)
 
     const logLineDataRegex = new RegExp(
-      `${(this.config.REGEX_SERVER_PREFIX || "\\[Server thread/INFO\\]:")} (.*)`
+      `${(this.config.REGEX_SERVER_PREFIX || "\\[Server thread/INFO\\]:")} (?<logline>.*)`
     )
 
     // get the part after the log prefix, so all the actual data is here
@@ -52,7 +52,7 @@ class MinecraftHandler {
       return null
     }
 
-    const logLine = logLineData[1]
+    const logLine = logLineData.groups.logline
 
     // the username used for server messages
     const serverUsername = `${this.config.SERVER_NAME} Server`

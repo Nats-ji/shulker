@@ -36,6 +36,7 @@ export interface Config {
   REGEX_SERVER_PREFIX: string
   REGEX_MATCH_CHAT_MC: string
   REGEX_IGNORED_CHAT: string
+  REGEX_IGNORED_DISCORD: string
   DEBUG: boolean
 
   SERVER_NAME: string

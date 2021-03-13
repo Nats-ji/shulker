@@ -33,6 +33,7 @@
     "REGEX_SERVER_PREFIX": "\\[Server thread/INFO\\]:",
     "REGEX_MATCH_CHAT_MC": "^<([^>]*)> (.*)",
     "REGEX_IGNORED_CHAT": "packets too frequently",
+    "REGEX_IGNORED_DISCORD": "",
     "DEBUG": false,
 
     "SERVER_NAME": "Shulker",

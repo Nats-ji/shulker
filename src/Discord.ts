@@ -100,6 +100,14 @@ class Discord {
     if (message.author.id === this.client.user.id) return
     // ignore any attachments
     if (message.attachments.array().length) return
+    // ignore messages matching REGEX_IGNORED_DISCORD
+    if (this.config.REGEX_IGNORED_DISCORD != "") {
+      const ignored = new RegExp(this.config.REGEX_IGNORED_DISCORD)
+      if (ignored.test(message.cleanContent)) {
+        if (this.config.DEBUG) console.log('[DEBUG] Discord message ignored:', message.cleanContent)
+        return
+      }
+    }
 
     const rcon = new Rcon(this.config.MINECRAFT_SERVER_RCON_IP, this.config.MINECRAFT_SERVER_RCON_PORT, this.config.DEBUG)
     try {

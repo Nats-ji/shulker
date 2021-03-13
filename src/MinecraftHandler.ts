@@ -52,7 +52,7 @@ class MinecraftHandler {
       return null
     }
 
-    const logLine = logLineData.groups.logline
+    const logLine = logLineData.groups?.logline ?? ""
 
     // the username used for server messages
     const serverUsername = `${this.config.SERVER_NAME} Server`

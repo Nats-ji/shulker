@@ -54,7 +54,7 @@ class MinecraftHandler {
     const logLine = logLineData[1]
 
     // the username used for server messages
-    const serverUsername = `${this.config.SERVER_NAME}`
+    const serverUsername = `${this.config.SERVER_NAME} Server`
 
     if (logLine.startsWith('<')) {
       if (this.config.DEBUG){

@@ -97,7 +97,7 @@ class Discord {
       return
     }
     // if the same user as the bot, ignore
-    if (message.author.id === this.client.user.id) return
+    if (message.author.id === this.client.user?.id) return
     // ignore any attachments
     if (message.attachments.array().length) return
     // ignore messages matching REGEX_IGNORED_DISCORD
@@ -120,7 +120,7 @@ class Discord {
     let command = ''
     if (this.config.ALLOW_SLASH_COMMANDS && this.config.SLASH_COMMAND_ROLES && message.cleanContent.startsWith('/')) {
       const author = message.member
-      if (author.roles.find(r => this.config.SLASH_COMMAND_ROLES.includes(r.name))) {
+      if (author && author.roles.cache.find(r => this.config.SLASH_COMMAND_ROLES.includes(r.name))) {
         // send the raw command, can be dangerous...
         command = message.cleanContent
       } else {
@@ -156,7 +156,7 @@ class Discord {
   private makeMinecraftTellraw(message: Message): string {
     const variables: {[index: string]: string} = {
       username: emojiStrip(message.author.username),
-      nickname: emojiStrip(message.member.displayName),
+      nickname: emojiStrip(message.member?.nickname ?? message.author.username),
       discriminator: message.author.discriminator,
       text: emojiStrip(message.cleanContent)
     }
@@ -190,7 +190,7 @@ class Discord {
         let username = mentionParts[0].replace('@', '')
         if (mentionParts.length > 1) {
           if (this.config.ALLOW_USER_MENTIONS) {
-            const user = this.client.users.find(user => user.username === username && user.discriminator === mentionParts[1])
+            const user = this.client.users.cache.find(user => user.username === username && user.discriminator === mentionParts[1])
             if (user) {
               message = message.replace(mention, '<@' + user.id + '>')
             }
@@ -246,7 +246,7 @@ class Discord {
       }
     } else {
       // find the channel
-      const channel = this.client.channels.find((ch) => ch.id === this.config.DISCORD_CHANNEL_ID && ch.type === 'text') as TextChannel
+      const channel = this.client.channels.cache.find((ch) => ch.id === this.config.DISCORD_CHANNEL_ID && ch.type === 'text') as TextChannel
       if (channel) {
         await channel.send(this.makeDiscordMessage(username, message))
       } else {

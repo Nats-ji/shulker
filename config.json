@@ -4,6 +4,7 @@
     "USE_WEBHOOKS": true,
     "WEBHOOK_URL": "DISCORD_WEBHOOK_URL_HERE",
     "IGNORE_WEBHOOKS": true,
+    "IGNORE_BOTS": true,
     "DISCORD_TOKEN": "TOKEN_HERE",
     "DISCORD_CHANNEL_ID": "",
     "DISCORD_CHANNEL_NAME": "#bot",

@@ -91,6 +91,11 @@ class Discord {
         }
       }
     }
+    // if ignore bots is on, ignore
+    if (this.config.IGNORE_BOTS && message.author.bot) {
+      if (this.config.DEBUG) console.log('[INFO] Ignored Bot message:', message.cleanContent)
+      return
+    }
     // if the same user as the bot, ignore
     if (message.author.id === this.client.user.id) return
     // ignore any attachments

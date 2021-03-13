@@ -156,7 +156,7 @@ class Discord {
   private makeMinecraftTellraw(message: Message): string {
     const variables: {[index: string]: string} = {
       username: emojiStrip(message.author.username),
-      nickname: message.member.nickname ? emojiStrip(message.member.nickname) : emojiStrip(message.author.username),
+      nickname: emojiStrip(message.member.displayName),
       discriminator: message.author.discriminator,
       text: emojiStrip(message.cleanContent)
     }

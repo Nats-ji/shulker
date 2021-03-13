@@ -27,11 +27,12 @@ class MinecraftHandler {
   }
 
   private parseLogLine (data: string): LogLine {
-    const ignored = new RegExp(this.config.REGEX_IGNORED_CHAT)
-
-    if (ignored.test(data) || data.includes('Rcon connection')) {
-      if (this.config.DEBUG) console.log('[DEBUG] Line ignored')
-      return null
+    if (this.config.REGEX_IGNORED_CHAT != "") {
+      const ignored = new RegExp(this.config.REGEX_IGNORED_CHAT)
+      if (ignored.test(data) || data.includes('Rcon connection')) {
+        if (this.config.DEBUG) console.log('[DEBUG] Line ignored')
+        return null
+      }
     }
 
     if (this.config.DEBUG) console.log('[DEBUG] Received ' + data)

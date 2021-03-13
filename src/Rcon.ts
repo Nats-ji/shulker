@@ -88,6 +88,8 @@ class Rcon {
     const id = this.nextId
     this.nextId++
 
+    payload = Buffer.from(payload, 'utf8').toString('ascii')
+
     if (!this.connected) { throw new Error('Cannot send package while not connected') }
 
     const length = 14 + payload.length
